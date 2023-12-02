@@ -10,10 +10,7 @@ def main() -> int:
         def __init__(self, a, b, c):
             self.number = a
             self.index = b
-            if not c:
-                self.occurances = -1
-            else:
-                self.occurances = c
+            self.occurances = c
         def __repr__(self) -> str:
             return "Number: % s Index: % s \n Occurance at index(s): % s" % (self.number, self.index, self.occurances)
 
