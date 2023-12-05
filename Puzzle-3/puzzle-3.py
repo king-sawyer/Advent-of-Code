@@ -1,7 +1,9 @@
-import re
+from pathlib import Path
+
 def main() -> int:
         
-    f = open('C:\\Users\\Owner\\Desktop\\Advent of Code\\Advent-of-Code\\Puzzle-3\\puzzle-3-data.txt', 'r')
+    path = Path(__file__).with_name('puzzle-3-data.txt')    
+    f = path.open()
     data = f.readlines()
 
     max = {
@@ -21,7 +23,7 @@ def main() -> int:
 
 
     for row in data:
-        game, pulls =  re.split(': ', row)
+        game, pulls =  row.split(': ')
         game = int(game[5:])
 
         possible = True
@@ -37,7 +39,6 @@ def main() -> int:
         if possible:
             idsOfTotalPassing += game
         
-        # print(min)
         gamePower = min['blue'] * min['green'] * min['red']
         totalPowers.append(gamePower)
         min['blue'] = 0
